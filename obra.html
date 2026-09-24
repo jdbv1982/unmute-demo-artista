@@ -4,195 +4,389 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sin título #14 — María León · unmute</title>
-  <meta name="description" content="Escucha y mira la voz de María León sobre Sin título #14. Sin descargar la app." />
+  <meta name="description" content="Mira la obra y el video de María León. Sin descargar la app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    body.obra-web {
+    :root {
+      --ink: #0a0a0a;
+      --ink-soft: #3d3d3d;
+      --muted: #6a6a6a;
+      --line: #e4e4e0;
+      --paper: #ffffff;
+      --paper-2: #f3f2ef;
+      --accent: #c1121f;
+      --font-ui: "Archivo", system-ui, sans-serif;
+      --font-display: "Instrument Serif", Georgia, serif;
+      --img-art: url("https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80");
+      --img-artist: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80");
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: var(--font-ui);
+      color: var(--ink);
       background:
-        radial-gradient(ellipse at top, #f0eeea 0%, transparent 55%),
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(193, 18, 31, 0.07), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0, 0, 0, 0.04), transparent 50%),
         var(--paper-2);
-      min-height: 100vh;
     }
-    .obra-shell {
-      max-width: 520px;
+    button, a { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; }
+    a { text-decoration: none; }
+
+    .shell {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 1.25rem 1rem 3rem;
+      padding: 1.25rem 1.25rem 3rem;
     }
-    .obra-top {
+
+    .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
-    .obra-top .brand {
-      font-size: 1.25rem;
+
+    .brand {
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -0.05em;
       line-height: 1;
     }
-    .obra-top .brand .un {
-      color: var(--ink);
-    }
-    .obra-top .brand em {
+    .brand .un { color: var(--ink); }
+    .brand em {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 400;
       color: var(--accent);
     }
-    .obra-badge {
+
+    .badge {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
       color: var(--muted);
       border: 1px solid var(--line);
-      padding: 0.3rem 0.45rem;
+      padding: 0.35rem 0.55rem;
+      background: var(--paper);
     }
-    .obra-hero {
-      aspect-ratio: 4 / 5;
-      background-image: var(--img-art-1);
-      background-size: cover;
-      background-position: center;
+
+    /* Obra | Artista */
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+      align-items: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .art-pane {
       position: relative;
-      margin-bottom: 1.1rem;
+      background: #111;
+      min-height: 520px;
     }
-    .obra-hero .voice-chip {
-      position: absolute;
-      left: 0.75rem;
-      bottom: 0.75rem;
-    }
-    .obra-web h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 8vw, 2.75rem);
-      font-weight: 400;
-      line-height: 1.05;
-      margin-bottom: 0.35rem;
-    }
-    .obra-meta {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-    .obra-artist-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 1rem;
-    }
-    .obra-artist-row .avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-image: var(--img-artist-1);
+
+    .art-image {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      background-image: var(--img-art);
       background-size: cover;
       background-position: center;
     }
-    .obra-artist-row strong {
-      display: block;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
+
+    .art-chip {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.65rem;
+      background: rgba(255, 255, 255, 0.94);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .obra-artist-row span {
-      font-size: 0.78rem;
+    .art-chip .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .artist-pane {
+      padding: 1.5rem 1.5rem 1.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      min-height: 520px;
+    }
+
+    .artist-head {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-image: var(--img-artist);
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      border: 1px solid var(--line);
+    }
+
+    .artist-head strong {
+      display: block;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .artist-head span {
+      font-size: 0.82rem;
       color: var(--muted);
     }
-    .obra-cta {
-      display: grid;
-      gap: 0.55rem;
-      margin-top: 1.35rem;
+
+    .work-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4vw, 2.45rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
     }
-    .obra-note {
-      margin-top: 1.5rem;
+
+    .work-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: -0.35rem;
+    }
+
+    .work-desc {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .video-block {
+      margin-top: 0.15rem;
+    }
+
+    .video-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .video-stage {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55)),
+        var(--img-artist);
+      background-size: cover;
+      background-position: center 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .video-stage.playing::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(193, 18, 31, 0.18);
+      pointer-events: none;
+      animation: pulse 1.6s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.7; }
+    }
+
+    .play-hit {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .play-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .play-circle:hover { transform: scale(1.05); }
+    .play-circle svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .video-stage.playing .play-circle {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .video-meta {
+      position: relative;
+      z-index: 2;
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.55));
+    }
+
+    .video-hint {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-top: 0.55rem;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-ghost { background: transparent; }
+    .btn-ghost:hover { background: var(--paper-2); }
+
+    .note {
+      margin-top: 1.25rem;
       font-size: 0.8rem;
       color: var(--muted);
       line-height: 1.45;
+      max-width: 48rem;
     }
-    .obra-web .media-choice { margin-top: 0.25rem; }
+
+    @media (max-width: 860px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+      .art-pane,
+      .art-image {
+        min-height: 360px;
+      }
+      .artist-pane {
+        min-height: 0;
+      }
+      .cta {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
-<body class="obra-web">
-  <div class="obra-shell">
-    <div class="obra-top">
+<body>
+  <div class="shell">
+    <header class="top">
       <div class="brand"><span class="un">UN</span><em>mute</em></div>
-      <div class="obra-badge">Página pública</div>
-    </div>
+      <div class="badge">Página pública</div>
+    </header>
 
-    <div class="obra-hero">
-      <span class="voice-chip"><span class="dot"></span> Video · 0:47</span>
-    </div>
+    <main class="split">
+      <section class="art-pane" aria-label="Obra">
+        <div class="art-image" id="artImage" role="img" aria-label="Imagen de la obra"></div>
+        <span class="art-chip"><span class="dot"></span> Obra</span>
+      </section>
 
-    <h1 id="obraTitle">Sin título #14</h1>
-    <p class="obra-meta" id="obraMeta">2024 · Óleo sobre tela · 80 × 100 cm</p>
-
-    <div class="obra-artist-row">
-      <div class="avatar" aria-hidden="true"></div>
-      <div>
-        <strong id="obraArtist">María León</strong>
-        <span>Artista · Ciudad de México</span>
-      </div>
-    </div>
-
-    <div class="voice-block">
-      <div class="label">La voz del artista</div>
-      <h3>Qué sentí al pintar esto</h3>
-      <p>¿Qué quieres? Escuchar lo que dijo, o verla en el video. No necesitas la app.</p>
-
-      <div class="media-choice" role="group" aria-label="Formato de la voz del artista">
-        <button type="button" class="media-choice-btn" data-media="audio" id="chooseAudio">
-          <strong>Escuchar</strong>
-          <span>Solo la voz</span>
-        </button>
-        <button type="button" class="media-choice-btn active" data-media="video" id="chooseVideo">
-          <strong>Ver video</strong>
-          <span>Ver al artista</span>
-        </button>
-      </div>
-
-      <div class="media-panel" id="mediaAudio" hidden>
-        <div class="player">
-          <button class="play-btn" id="playVoice" aria-label="Reproducir audio">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="wave" id="voiceWave">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-          <span class="time">0:47</span>
-        </div>
-      </div>
-
-      <div class="media-panel" id="mediaVideo">
-        <div class="artist-video" id="artistVideo">
-          <button class="play-btn video-play" id="playVideo" aria-label="Reproducir video">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="artist-video-meta">
-            <span>María León · 0:47</span>
-            <span class="artist-video-status" id="videoStatus">Toca para ver al artista</span>
+      <section class="artist-pane" aria-label="Artista y video">
+        <div class="artist-head">
+          <div class="avatar" id="artistAvatar" aria-hidden="true"></div>
+          <div>
+            <strong id="obraArtist">María León</strong>
+            <span id="obraCity">Artista · Ciudad de México</span>
           </div>
         </div>
-      </div>
-    </div>
 
-    <p class="soft" style="line-height:1.55;font-size:0.95rem;margin-top:1rem" id="obraDesc">
-      Una exploración sobre la memoria familiar y la luz de la tarde en el patio.
-      Partí de una foto antigua y la fui disolviendo hasta dejar solo la temperatura del recuerdo.
-    </p>
+        <div>
+          <h1 class="work-title" id="obraTitle">Sin título #14</h1>
+          <p class="work-meta" id="obraMeta">2024 · Óleo sobre tela · 80 × 100 cm</p>
+        </div>
 
-    <div class="obra-cta">
-      <a class="btn btn-primary" href="index.html">Abrir en unmute</a>
-      <button class="btn btn-ghost" type="button" id="copyLink">Copiar enlace</button>
-    </div>
+        <p class="work-desc" id="obraDesc">
+          Una exploración sobre la memoria familiar y la luz de la tarde en el patio.
+        </p>
 
-    <p class="obra-note">
-      Este link y el QR de la galería abren esta misma página. Puedes ver la obra y la voz del artista
-      desde el navegador, sin instalar nada. Si ya tienes la app, “Abrir en unmute” te lleva ahí.
+        <div class="video-block">
+          <div class="video-label">La voz del artista</div>
+          <div class="video-stage" id="videoStage">
+            <button type="button" class="play-hit" id="playVideo" aria-label="Reproducir video del artista">
+              <span class="play-circle" id="playIcon">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+            <div class="video-meta">
+              <span id="videoName">María León · 0:47</span>
+              <span id="videoStatus">Ver explicación</span>
+            </div>
+          </div>
+          <p class="video-hint" id="videoHint">
+            En el video, la artista cuenta qué sintió y qué quiso decir con esta pieza.
+          </p>
+        </div>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="index.html">Abrir en unmute</a>
+          <button class="btn btn-ghost" type="button" id="copyLink">Copiar enlace</button>
+        </div>
+      </section>
+    </main>
+
+    <p class="note">
+      Este link y el QR de la galería abren esta misma página. Puedes ver la obra y el video del artista
+      desde el navegador, sin instalar nada.
     </p>
   </div>
 
@@ -203,78 +397,83 @@
           title: "Sin título #14",
           meta: "2024 · Óleo sobre tela · 80 × 100 cm",
           artist: "María León",
+          city: "Artista · Ciudad de México",
           desc: "Una exploración sobre la memoria familiar y la luz de la tarde en el patio. Partí de una foto antigua y la fui disolviendo hasta dejar solo la temperatura del recuerdo.",
+          art: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80",
+          artistImg: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+          duration: "0:47",
         },
         "luz-de-patio": {
           title: "Luz de patio",
           meta: "2026 · Óleo sobre tela · 80 × 100 cm",
           artist: "María León",
+          city: "Artista · Ciudad de México",
           desc: "Partí de una tarde en casa de mi abuela. Quise pintar la temperatura del recuerdo, no la escena exacta.",
+          art: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80",
+          artistImg: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+          duration: "0:47",
+        },
+        "serie-norte": {
+          title: "Serie Norte",
+          meta: "2025 · Acrílico · 100 × 120 cm",
+          artist: "Diego Mora",
+          city: "Artista · Monterrey",
+          desc: "Paisajes reducidos a planos de color y silencio.",
+          art: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1200&q=80",
+          artistImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+          duration: "0:52",
         },
       };
 
       const params = new URLSearchParams(location.search);
-      const id = params.get("o") || "sin-titulo-14";
+      const raw = params.get("o") || "sin-titulo-14";
+      const id = Object.keys(catalog).find((k) => raw.startsWith(k)) || (catalog[raw] ? raw : "sin-titulo-14");
       const work = catalog[id] || catalog["sin-titulo-14"];
 
       document.title = `${work.title} — ${work.artist} · unmute`;
       document.getElementById("obraTitle").textContent = work.title;
       document.getElementById("obraMeta").textContent = work.meta;
       document.getElementById("obraArtist").textContent = work.artist;
+      document.getElementById("obraCity").textContent = work.city;
       document.getElementById("obraDesc").textContent = work.desc;
+      document.getElementById("videoName").textContent = `${work.artist} · ${work.duration}`;
+      document.getElementById("artImage").style.backgroundImage = `url("${work.art}")`;
+      document.getElementById("artistAvatar").style.backgroundImage = `url("${work.artistImg}")`;
+      document.getElementById("videoStage").style.backgroundImage =
+        `linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url("${work.artistImg}")`;
 
-      let voicePlaying = false;
-      let videoPlaying = false;
+      let playing = false;
+      const stage = document.getElementById("videoStage");
+      const status = document.getElementById("videoStatus");
+      const icon = document.getElementById("playIcon");
+      const hint = document.getElementById("videoHint");
 
-      function setMediaMode(mode) {
-        document.querySelectorAll(".media-choice-btn").forEach((btn) => {
-          btn.classList.toggle("active", btn.dataset.media === mode);
-        });
-        document.getElementById("mediaAudio").hidden = mode !== "audio";
-        document.getElementById("mediaVideo").hidden = mode !== "video";
-      }
-
-      document.querySelectorAll(".media-choice-btn").forEach((btn) => {
-        btn.addEventListener("click", () => setMediaMode(btn.dataset.media));
-      });
-
-      const playVoice = document.getElementById("playVoice");
-      const wave = document.getElementById("voiceWave");
-      playVoice.addEventListener("click", () => {
-        voicePlaying = !voicePlaying;
-        playVoice.classList.toggle("playing", voicePlaying);
-        wave.classList.toggle("playing", voicePlaying);
-        playVoice.innerHTML = voicePlaying
-          ? `<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>`
-          : `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-      });
-
-      const playVideo = document.getElementById("playVideo");
-      const artistVideo = document.getElementById("artistVideo");
-      const videoStatus = document.getElementById("videoStatus");
-      playVideo.addEventListener("click", () => {
-        videoPlaying = !videoPlaying;
-        playVideo.classList.toggle("playing", videoPlaying);
-        artistVideo.classList.toggle("playing", videoPlaying);
-        playVideo.innerHTML = videoPlaying
-          ? `<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>`
-          : `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-        videoStatus.textContent = videoPlaying ? "Reproduciendo video…" : "Toca para ver al artista";
+      document.getElementById("playVideo").addEventListener("click", () => {
+        playing = !playing;
+        stage.classList.toggle("playing", playing);
+        if (playing) {
+          status.textContent = "Reproduciendo…";
+          hint.textContent = "La artista explica el origen y la emoción detrás de la pieza.";
+          icon.innerHTML =
+            `<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>`;
+        } else {
+          status.textContent = "Ver explicación";
+          hint.textContent =
+            "En el video, la artista cuenta qué sintió y qué quiso decir con esta pieza.";
+          icon.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+        }
       });
 
       document.getElementById("copyLink").addEventListener("click", async () => {
+        const btn = document.getElementById("copyLink");
         try {
           await navigator.clipboard.writeText(location.href);
-          document.getElementById("copyLink").textContent = "Enlace copiado";
-          setTimeout(() => {
-            document.getElementById("copyLink").textContent = "Copiar enlace";
-          }, 1600);
+          btn.textContent = "Enlace copiado";
+          setTimeout(() => { btn.textContent = "Copiar enlace"; }, 1600);
         } catch {
           prompt("Copia este enlace:", location.href);
         }
       });
-
-      setMediaMode("video");
     })();
   </script>
 </body>
