@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>unmute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-persona="artist">
+  <div class="app-shell">
+    <div class="phone" id="phone">
+      <div class="status-bar">
+        <span>9:41</span>
+        <span class="icons">5G · ▮▮▮ · 🔋</span>
+      </div>
+
+      <div class="screens" id="screens">
+
+        <!-- SPLASH -->
+        <section class="screen active" data-screen="splash">
+          <div class="splash">
+            <div class="brand"><span class="un">UN</span><em>mute</em></div>
+            <p>El arte se ve. Aquí también se escucha.</p>
+            <button class="btn btn-primary" data-go="login">Comenzar</button>
+          </div>
+        </section>
+
+        <!-- LOGIN -->
+        <section class="screen" data-screen="login">
+          <div class="topbar">
+            <button class="icon-btn" data-go="splash" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title" id="loginTitle">Entrar</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="screen-scroll">
+            <div class="auth-pad">
+              <div class="auth-brand"><span class="un">UN</span><em>mute</em></div>
+              <h2 id="loginHeading">Bienvenido</h2>
+              <p class="sub" id="loginSub">Entra con Google, Apple o tu correo.</p>
+
+              <div class="social-stack">
+                <button type="button" class="btn-social google" data-auth="google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#EA4335" d="M12 10.2v3.6h5.1c-.2 1.2-.9 2.2-1.9 2.9l3.1 2.4c1.8-1.7 2.8-4.1 2.8-7 0-.7-.1-1.3-.2-1.9H12z"/>
+                    <path fill="#34A853" d="M5.3 14.3l-.8.6-2.5 1.9C3.6 20.1 7.5 22.5 12 22.5c2.7 0 5-.9 6.7-2.4l-3.1-2.4c-.9.6-2 1-3.6 1-2.8 0-5.1-1.9-5.9-4.4z"/>
+                    <path fill="#4A90E2" d="M3.2 7.2A10.4 10.4 0 0 0 1.5 12c0 1.7.4 3.3 1.1 4.7l3.5-2.7c-.3-.7-.4-1.4-.4-2 0-.7.2-1.4.4-2L3.2 7.2z"/>
+                    <path fill="#FBBC05" d="M12 5.3c1.5 0 2.8.5 3.8 1.5l2.8-2.8C16.9 2.2 14.7 1.5 12 1.5 7.5 1.5 3.6 3.9 2 7.2l3.5 2.7C6.3 7.2 8.7 5.3 12 5.3z"/>
+                  </svg>
+                  Continuar con Google
+                </button>
+                <button type="button" class="btn-social apple" data-auth="apple">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  Continuar con Apple
+                </button>
+              </div>
+
+              <div class="auth-divider">o con correo</div>
+
+              <div class="email-panel" id="emailPanel">
+                <div class="field hidden" id="authNameField">
+                  <label>Nombre artístico</label>
+                  <input type="text" id="authName" value="María León" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label>Correo electrónico</label>
+                  <input type="email" id="authEmail" value="maria@unmute.app" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label>Contraseña</label>
+                  <input type="password" id="authPass" value="••••••••" autocomplete="current-password" />
+                </div>
+                <button class="btn btn-primary" type="button" id="emailContinue">Entrar</button>
+              </div>
+
+              <p class="center-note" id="authSwitchNote">
+                ¿No tienes cuenta?
+                <button type="button" class="linkish" id="switchAuthMode">Regístrate</button>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE SETUP (solo al registrarse) -->
+        <section class="screen" data-screen="profile-setup">
+          <div class="topbar">
+            <button class="icon-btn" data-go="login" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Tu perfil</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="screen-scroll">
+            <div class="auth-pad">
+              <h2>Completa tu perfil</h2>
+              <p class="sub">Así te van a ver en unmute.</p>
+              <div class="field">
+                <label>Nombre para mostrar</label>
+                <input type="text" id="setupName" value="María León" />
+              </div>
+              <div class="field">
+                <label>Ciudad</label>
+                <input type="text" id="setupCity" value="Ciudad de México" />
+              </div>
+              <div class="field">
+                <label>Bio</label>
+                <textarea id="setupBio">Pintora. Memoria doméstica y luz como archivo emocional.</textarea>
+              </div>
+              <div class="field">
+                <label>Técnicas / enfoque</label>
+                <input type="text" value="Óleo, técnica mixta" />
+              </div>
+              <button class="btn btn-primary" id="finishSetup">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOME -->
+        <section class="screen with-tabs" data-screen="home">
+          <div class="topbar">
+            <h1><span class="un">UN</span><em>mute</em></h1>
+            <span style="width:36px"></span>
+          </div>
+          <div class="feed-tabs">
+            <button class="active" type="button">Para ti</button>
+            <button type="button">Siguiendo</button>
+            <button type="button">Tendencias</button>
+          </div>
+          <div class="screen-scroll" id="feedList"></div>
+        </section>
+
+        <!-- MY WORKS -->
+        <section class="screen with-tabs" data-screen="my-works">
+          <div class="topbar">
+            <h1>Mis obras</h1>
+            <button class="icon-btn" data-go="publish-1" aria-label="Nueva">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <div class="screen-scroll">
+            <div class="works-list" id="myWorksList"></div>
+          </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section class="screen with-tabs" data-screen="profile">
+          <div class="topbar">
+            <h1>Perfil</h1>
+            <button class="icon-btn" data-go="settings" aria-label="Ajustes">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+            </button>
+          </div>
+          <div class="screen-scroll">
+            <div class="profile-head">
+              <div class="row">
+                <div class="avatar xl" id="profileAvatar" style="background-image:var(--img-artist-1)"></div>
+                <div>
+                  <h2 id="profileName">María León</h2>
+                  <div class="role-tag">Artista</div>
+                </div>
+              </div>
+              <p class="bio" id="profileBio">Pintora. Memoria doméstica y luz como archivo emocional.</p>
+              <div class="stats">
+                <div><strong id="statWorks">1</strong><span>Obras</span></div>
+                <div><strong>2.4k</strong><span>Seguidores</span></div>
+                <div><strong>18k</strong><span>Likes</span></div>
+              </div>
+              <div style="margin-top:1rem">
+                <button class="btn btn-primary btn-sm" data-go="publish-1">Subir obra</button>
+              </div>
+            </div>
+            <div class="section-pad" style="padding-bottom:0.4rem"><strong>Mis obras</strong></div>
+            <div class="works-grid" id="profileWorksGrid"></div>
+          </div>
+        </section>
+
+        <!-- ARTWORK -->
+        <section class="screen" data-screen="artwork">
+          <div class="topbar">
+            <button class="icon-btn" data-back aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Obra</div>
+            <button class="icon-btn" data-go="share-obra" aria-label="Compartir">
+              <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            </button>
+          </div>
+          <div class="screen-scroll">
+            <div class="art-frame art-a" id="artworkHero" style="border-radius:0;aspect-ratio:4/5"></div>
+            <div class="section-pad">
+              <h2 id="artworkTitle" style="font-family:var(--font-display);font-size:1.85rem;font-weight:400;margin:0.5rem 0 0.25rem">Sin título #14</h2>
+              <p class="soft" id="artworkArtist" style="margin-bottom:0.75rem">María León · CDMX</p>
+              <p id="artworkDesc" style="font-size:0.92rem;line-height:1.5;color:var(--ink-soft)">Una exploración sobre la memoria familiar y la luz de la tarde en el patio.</p>
+
+              <div class="voice-block">
+                <div class="label">La voz del artista</div>
+                <button type="button" class="play-voice" id="playVoice">
+                  <span class="play-circle" id="playIcon">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  <span>
+                    <strong id="voiceStatus">Escuchar al artista</strong>
+                    <small>0:47 · video</small>
+                  </span>
+                </button>
+              </div>
+
+              <div class="actions" style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+                <button class="action" data-toggle="like" type="button">
+                  <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+                  Me gusta
+                </button>
+                <button class="action" data-go="share-obra" type="button">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  Compartir
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SHARE -->
+        <section class="screen" data-screen="share-obra">
+          <div class="topbar">
+            <button class="icon-btn" data-back aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Compartir</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="screen-scroll">
+            <div class="section-pad share-pad">
+              <div class="share-preview art-a" id="sharePreview"></div>
+              <h2 id="shareTitle">Sin título #14</h2>
+              <p class="soft" id="shareArtist" style="margin:0.35rem 0 1rem">María León · página pública</p>
+              <p class="help" style="margin-bottom:1rem">
+                Quien reciba el link ve la obra y el video en el navegador.
+                <strong>No necesita descargar la app.</strong>
+              </p>
+              <div class="link-box">
+                <code id="shareLinkText">unmute.app/o/sin-titulo-14</code>
+              </div>
+              <div class="share-actions">
+                <button class="btn btn-primary" type="button" id="copyShareLink">Copiar enlace</button>
+                <button class="btn btn-ghost" type="button" id="openPublicWeb">Abrir página web</button>
+                <button class="btn btn-ghost" type="button" data-go="obra-qr">Ver QR para galería</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- QR -->
+        <section class="screen" data-screen="obra-qr">
+          <div class="topbar">
+            <button class="icon-btn" data-back aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">QR de la obra</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="screen-scroll">
+            <div class="section-pad qr-pad">
+              <p class="help" style="text-align:center;margin-bottom:1rem">
+                Imprímelo y colócalo junto a la pieza en la galería.
+                Al escanearlo se abre la <strong>página pública</strong> (sin app).
+              </p>
+              <div class="qr-frame">
+                <img id="obraQrImg" alt="Código QR de la obra" width="220" height="220" />
+              </div>
+              <h2 id="qrTitle" style="text-align:center;margin-top:1rem;font-size:1.35rem">Sin título #14</h2>
+              <p class="soft" id="qrArtist" style="text-align:center;margin-top:0.25rem">María León</p>
+              <p class="center-note" style="margin-top:0.85rem"><code id="qrLinkText">unmute.app/o/sin-titulo-14</code></p>
+              <div class="share-actions" style="margin-top:1.25rem">
+                <button class="btn btn-primary" type="button" id="openPublicWebFromQr">Probar escaneo (abrir web)</button>
+                <button class="btn btn-ghost" type="button" id="copyShareLinkFromQr">Copiar enlace</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PUBLISH 1 -->
+        <section class="screen" data-screen="publish-1">
+          <div class="topbar">
+            <button class="icon-btn" data-go="home" aria-label="Cerrar">
+              <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="title">Nueva obra</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="steps-bar"><div class="s on"></div><div class="s"></div><div class="s"></div><div class="s"></div></div>
+          <div class="screen-scroll">
+            <div class="publish-pad">
+              <h2>Fotos de la obra</h2>
+              <p class="help">La primera imagen será la portada en el muro.</p>
+              <button class="upload-zone" id="addPhotos" type="button">
+                <div>
+                  <strong>Tocar para agregar fotos</strong>
+                  <span>JPG o PNG · hasta 8 imágenes</span>
+                </div>
+              </button>
+              <div class="thumb-row hidden" id="photoThumbs">
+                <div class="t art-e"></div>
+                <div class="t art-d"></div>
+                <div class="t art-c"></div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn btn-primary" data-go="publish-2">Continuar</button>
+          </div>
+        </section>
+
+        <!-- PUBLISH 2 -->
+        <section class="screen" data-screen="publish-2">
+          <div class="topbar">
+            <button class="icon-btn" data-go="publish-1" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Nueva obra</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="steps-bar"><div class="s on"></div><div class="s on"></div><div class="s"></div><div class="s"></div></div>
+          <div class="screen-scroll">
+            <div class="publish-pad">
+              <h2>Datos de la pieza</h2>
+              <p class="help">Título, descripción y detalles opcionales.</p>
+              <div class="field">
+                <label>Título</label>
+                <input id="artTitle" type="text" value="Luz de patio" />
+              </div>
+              <div class="field">
+                <label>Descripción</label>
+                <textarea id="artDesc">Partí de una tarde en casa de mi abuela. Quise pintar la temperatura del recuerdo, no la escena exacta.</textarea>
+              </div>
+              <div class="field">
+                <label>Técnica</label>
+                <input type="text" value="Óleo sobre tela" />
+              </div>
+              <div class="field">
+                <label>Medidas / año</label>
+                <input type="text" value="80 × 100 cm · 2026" />
+              </div>
+            </div>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn btn-primary" data-go="publish-3">Continuar al video</button>
+          </div>
+        </section>
+
+        <!-- PUBLISH 3 -->
+        <section class="screen" data-screen="publish-3">
+          <div class="topbar">
+            <button class="icon-btn" data-go="publish-2" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Tu voz</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="steps-bar"><div class="s on"></div><div class="s on"></div><div class="s on"></div><div class="s"></div></div>
+          <div class="screen-scroll">
+            <div class="publish-pad">
+              <h2>Graba tu video</h2>
+              <p class="help"><strong>Obligatorio.</strong> Cuenta el origen, la emoción o lo que quieres que vean (30–90 s).</p>
+              <div class="video-stage">
+                <button class="rec-ring" id="recBtn" type="button" aria-label="Grabar">
+                  <div class="inner"></div>
+                </button>
+                <div class="timer" id="recTimer">00:00</div>
+                <div class="video-ready-badge hidden" id="videoReadyBadge">Video listo</div>
+              </div>
+              <button class="btn btn-ghost" type="button" id="uploadVideo">Subir video desde el teléfono</button>
+              <p class="help" id="videoRequiredNote" style="margin-top:0.85rem">Graba o sube un video para continuar.</p>
+            </div>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn btn-primary" id="toPreview" disabled>Continuar</button>
+          </div>
+        </section>
+
+        <!-- PUBLISH 4 -->
+        <section class="screen" data-screen="publish-4">
+          <div class="topbar">
+            <button class="icon-btn" data-go="publish-3" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Vista previa</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="steps-bar"><div class="s on"></div><div class="s on"></div><div class="s on"></div><div class="s on"></div></div>
+          <div class="screen-scroll">
+            <div class="publish-pad">
+              <h2>Así se verá en el muro</h2>
+              <p class="help">Revisa y publica cuando esté listo.</p>
+              <div class="preview-card">
+                <div class="art art-e"></div>
+                <div class="body">
+                  <h3 id="previewTitle">Luz de patio</h3>
+                  <p class="soft" id="previewDesc" style="font-size:0.88rem;margin-top:0.3rem">Partí de una tarde en casa de mi abuela…</p>
+                  <div class="voice-chip" style="position:static;display:inline-flex;margin-top:0.75rem">Video del artista listo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn btn-primary" id="publishBtn">Publicar obra</button>
+          </div>
+        </section>
+
+        <!-- PUBLISHED -->
+        <section class="screen" data-screen="published">
+          <div class="screen-scroll">
+            <div class="publish-pad published-pad">
+              <div class="auth-brand"><span class="un">UN</span><em>mute</em></div>
+              <h2>Tu obra ya está viva</h2>
+              <p class="help" id="publishedMsg">Ya aparece en el muro y en Mis obras.</p>
+              <div class="preview-card" style="text-align:left;margin-top:1.25rem">
+                <div class="art art-e"></div>
+                <div class="body">
+                  <h3 id="publishedTitle">Luz de patio</h3>
+                  <p class="soft" style="font-size:0.85rem;margin-top:0.25rem">Con video · pública</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-cta" style="display:grid;gap:0.5rem">
+            <button class="btn btn-primary" data-go="share-obra">Compartir / QR</button>
+            <button class="btn btn-ghost" data-go="home">Ver en Inicio</button>
+            <button class="btn btn-ghost" data-go="my-works">Ir a Mis obras</button>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="screen" data-screen="settings">
+          <div class="topbar">
+            <button class="icon-btn" data-go="profile" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Ajustes</div>
+            <span style="width:36px"></span>
+          </div>
+          <div class="screen-scroll">
+            <div class="section-pad">
+              <button class="fav-item" id="logoutBtn" style="grid-template-columns:1fr">
+                <div>
+                  <strong>Cerrar sesión</strong>
+                  <div class="muted" style="font-size:0.8rem">Salir de tu cuenta</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <nav class="tabbar" id="tabbar" aria-label="Navegación principal">
+        <button class="tab active" data-tab="home">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          Inicio
+        </button>
+        <button class="tab center" data-tab="publish">
+          <span class="center-btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+          Subir
+        </button>
+        <button class="tab" data-tab="my-works">
+          <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+          Mis obras
+        </button>
+        <button class="tab" data-tab="profile">
+          <svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          Perfil
+        </button>
+      </nav>
+
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

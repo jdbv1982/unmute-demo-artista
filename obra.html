@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sin título #14 — María León · unmute</title>
+  <meta name="description" content="Escucha y mira la voz de María León sobre Sin título #14. Sin descargar la app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body.obra-web {
+      background:
+        radial-gradient(ellipse at top, #f0eeea 0%, transparent 55%),
+        var(--paper-2);
+      min-height: 100vh;
+    }
+    .obra-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+    .obra-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .obra-top .brand {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .obra-top .brand .un {
+      color: var(--ink);
+    }
+    .obra-top .brand em {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .obra-badge {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 0.3rem 0.45rem;
+    }
+    .obra-hero {
+      aspect-ratio: 4 / 5;
+      background-image: var(--img-art-1);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      margin-bottom: 1.1rem;
+    }
+    .obra-hero .voice-chip {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+    }
+    .obra-web h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 0.35rem;
+    }
+    .obra-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .obra-artist-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1rem;
+    }
+    .obra-artist-row .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-image: var(--img-artist-1);
+      background-size: cover;
+      background-position: center;
+    }
+    .obra-artist-row strong {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .obra-artist-row span {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .obra-cta {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1.35rem;
+    }
+    .obra-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .obra-web .media-choice { margin-top: 0.25rem; }
+  </style>
+</head>
+<body class="obra-web">
+  <div class="obra-shell">
+    <div class="obra-top">
+      <div class="brand"><span class="un">UN</span><em>mute</em></div>
+      <div class="obra-badge">Página pública</div>
+    </div>
+
+    <div class="obra-hero">
+      <span class="voice-chip"><span class="dot"></span> Video · 0:47</span>
+    </div>
+
+    <h1 id="obraTitle">Sin título #14</h1>
+    <p class="obra-meta" id="obraMeta">2024 · Óleo sobre tela · 80 × 100 cm</p>
+
+    <div class="obra-artist-row">
+      <div class="avatar" aria-hidden="true"></div>
+      <div>
+        <strong id="obraArtist">María León</strong>
+        <span>Artista · Ciudad de México</span>
+      </div>
+    </div>
+
+    <div class="voice-block">
+      <div class="label">La voz del artista</div>
+      <h3>Qué sentí al pintar esto</h3>
+      <p>¿Qué quieres? Escuchar lo que dijo, o verla en el video. No necesitas la app.</p>
+
+      <div class="media-choice" role="group" aria-label="Formato de la voz del artista">
+        <button type="button" class="media-choice-btn" data-media="audio" id="chooseAudio">
+          <strong>Escuchar</strong>
+          <span>Solo la voz</span>
+        </button>
+        <button type="button" class="media-choice-btn active" data-media="video" id="chooseVideo">
+          <strong>Ver video</strong>
+          <span>Ver al artista</span>
+        </button>
+      </div>
+
+      <div class="media-panel" id="mediaAudio" hidden>
+        <div class="player">
+          <button class="play-btn" id="playVoice" aria-label="Reproducir audio">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="wave" id="voiceWave">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <span class="time">0:47</span>
+        </div>
+      </div>
+
+      <div class="media-panel" id="mediaVideo">
+        <div class="artist-video" id="artistVideo">
+          <button class="play-btn video-play" id="playVideo" aria-label="Reproducir video">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="artist-video-meta">
+            <span>María León · 0:47</span>
+            <span class="artist-video-status" id="videoStatus">Toca para ver al artista</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="soft" style="line-height:1.55;font-size:0.95rem;margin-top:1rem" id="obraDesc">
+      Una exploración sobre la memoria familiar y la luz de la tarde en el patio.
+      Partí de una foto antigua y la fui disolviendo hasta dejar solo la temperatura del recuerdo.
+    </p>
+
+    <div class="obra-cta">
+      <a class="btn btn-primary" href="index.html">Abrir en unmute</a>
+      <button class="btn btn-ghost" type="button" id="copyLink">Copiar enlace</button>
+    </div>
+
+    <p class="obra-note">
+      Este link y el QR de la galería abren esta misma página. Puedes ver la obra y la voz del artista
+      desde el navegador, sin instalar nada. Si ya tienes la app, “Abrir en unmute” te lleva ahí.
+    </p>
+  </div>
+
+  <script>
+    (() => {
+      const catalog = {
+        "sin-titulo-14": {
+          title: "Sin título #14",
+          meta: "2024 · Óleo sobre tela · 80 × 100 cm",
+          artist: "María León",
+          desc: "Una exploración sobre la memoria familiar y la luz de la tarde en el patio. Partí de una foto antigua y la fui disolviendo hasta dejar solo la temperatura del recuerdo.",
+        },
+        "luz-de-patio": {
+          title: "Luz de patio",
+          meta: "2026 · Óleo sobre tela · 80 × 100 cm",
+          artist: "María León",
+          desc: "Partí de una tarde en casa de mi abuela. Quise pintar la temperatura del recuerdo, no la escena exacta.",
+        },
+      };
+
+      const params = new URLSearchParams(location.search);
+      const id = params.get("o") || "sin-titulo-14";
+      const work = catalog[id] || catalog["sin-titulo-14"];
+
+      document.title = `${work.title} — ${work.artist} · unmute`;
+      document.getElementById("obraTitle").textContent = work.title;
+      document.getElementById("obraMeta").textContent = work.meta;
+      document.getElementById("obraArtist").textContent = work.artist;
+      document.getElementById("obraDesc").textContent = work.desc;
+
+      let voicePlaying = false;
+      let videoPlaying = false;
+
+      function setMediaMode(mode) {
+        document.querySelectorAll(".media-choice-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.media === mode);
+        });
+        document.getElementById("mediaAudio").hidden = mode !== "audio";
+        document.getElementById("mediaVideo").hidden = mode !== "video";
+      }
+
+      document.querySelectorAll(".media-choice-btn").forEach((btn) => {
+        btn.addEventListener("click", () => setMediaMode(btn.dataset.media));
+      });
+
+      const playVoice = document.getElementById("playVoice");
+      const wave = document.getElementById("voiceWave");
+      playVoice.addEventListener("click", () => {
+        voicePlaying = !voicePlaying;
+        playVoice.classList.toggle("playing", voicePlaying);
+        wave.classList.toggle("playing", voicePlaying);
+        playVoice.innerHTML = voicePlaying
+          ? `<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>`
+          : `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      });
+
+      const playVideo = document.getElementById("playVideo");
+      const artistVideo = document.getElementById("artistVideo");
+      const videoStatus = document.getElementById("videoStatus");
+      playVideo.addEventListener("click", () => {
+        videoPlaying = !videoPlaying;
+        playVideo.classList.toggle("playing", videoPlaying);
+        artistVideo.classList.toggle("playing", videoPlaying);
+        playVideo.innerHTML = videoPlaying
+          ? `<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>`
+          : `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+        videoStatus.textContent = videoPlaying ? "Reproduciendo video…" : "Toca para ver al artista";
+      });
+
+      document.getElementById("copyLink").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(location.href);
+          document.getElementById("copyLink").textContent = "Enlace copiado";
+          setTimeout(() => {
+            document.getElementById("copyLink").textContent = "Copiar enlace";
+          }, 1600);
+        } catch {
+          prompt("Copia este enlace:", location.href);
+        }
+      });
+
+      setMediaMode("video");
+    })();
+  </script>
+</body>
+</html>
