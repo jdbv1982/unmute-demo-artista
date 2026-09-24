@@ -127,7 +127,7 @@
         <section class="screen with-tabs" data-screen="home">
           <div class="topbar">
             <h1><span class="un">UN</span><em>mute</em></h1>
-            <span style="width:36px"></span>
+            <button class="avatar-btn" data-go="profile" aria-label="Perfil" style="background-image:var(--img-artist-1)"></button>
           </div>
           <div class="feed-tabs">
             <button class="active" type="button">Para ti</button>
@@ -141,9 +141,12 @@
         <section class="screen with-tabs" data-screen="my-works">
           <div class="topbar">
             <h1>Mis obras</h1>
-            <button class="icon-btn" data-go="publish-1" aria-label="Nueva">
-              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
+            <div class="topbar-actions">
+              <button class="icon-btn" data-go="publish-1" aria-label="Nueva">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+              <button class="avatar-btn" data-go="profile" aria-label="Perfil" style="background-image:var(--img-artist-1)"></button>
+            </div>
           </div>
           <div class="screen-scroll">
             <div class="works-list" id="myWorksList"></div>
@@ -153,7 +156,10 @@
         <!-- PROFILE -->
         <section class="screen with-tabs" data-screen="profile">
           <div class="topbar">
-            <h1>Perfil</h1>
+            <button class="icon-btn" data-go="home" aria-label="Volver">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="title">Perfil</div>
             <button class="icon-btn" data-go="settings" aria-label="Ajustes">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
             </button>
@@ -472,10 +478,6 @@
         <button class="tab" data-tab="my-works">
           <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
           Mis obras
-        </button>
-        <button class="tab" data-tab="profile">
-          <svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
-          Perfil
         </button>
       </nav>
 

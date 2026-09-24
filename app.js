@@ -77,7 +77,7 @@
   };
 
   const authScreens = ["splash", "login", "profile-setup"];
-  const tabScreens = ["home", "my-works", "profile"];
+  const tabScreens = ["home", "my-works"];
   const overlayScreens = ["artwork", "settings", "published", "share-obra", "obra-qr"];
 
   const toastEl = document.getElementById("toast");
@@ -532,13 +532,12 @@
     }
   });
 
-  tabbar.addEventListener("click", (e) => {
+    tabbar.addEventListener("click", (e) => {
     const tab = e.target.closest(".tab");
     if (!tab) return;
     const key = tab.dataset.tab;
     if (key === "home") return go("home");
     if (key === "my-works") return go("my-works");
-    if (key === "profile") return go("profile");
     if (key === "publish") return go("publish-1");
   });
 
